@@ -12,12 +12,11 @@ app.config['SECRET_KEY'] = 'deda5200337483fd9ba3bcfae9008533'
 if os.getenv("DATABASE_URL"):
     app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv("DATABASE_URL")
 else:
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///comunidade.db'
-
-# Caminho absoluto para o banco
-basedir = os.path.abspath(os.path.dirname(__file__))
-db_path = os.path.join(basedir, '..', 'instance', 'comunidade.db')
-app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{db_path}'
+    #app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///comunidade.db'
+    # Caminho absoluto para o banco
+    basedir = os.path.abspath(os.path.dirname(__file__))
+    db_path = os.path.join(basedir, '..', 'instance', 'comunidade.db')
+    app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{db_path}'
 
 # Inicializa extensões
 database = SQLAlchemy(app)

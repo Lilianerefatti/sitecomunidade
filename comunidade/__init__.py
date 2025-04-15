@@ -8,10 +8,13 @@ import sqlalchemy
 app = Flask(__name__)
 
 app.config['SECRET_KEY'] = 'deda5200337483fd9ba3bcfae9008533'
-if os.getenv("DATABASE_URL"):
-    app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv("DATABASE_URL")
-else:
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///comunidade.db'
+
+# Corrige o prefixo da URL do banco (caso seja PostgreSQL do Railway)
+db_url = os.getenv("DATABASE_URL")
+if db_url and db_url.startswith("postgres://"):
+    db_url = db_url.replace("postgres://", "postgresql://", 1)
+
+app.config['SQLALCHEMY_DATABASE_URI'] = db_url or 'sqlite:///comunidade.db'
 
 # Inicializa extensões
 database = SQLAlchemy(app)
@@ -21,10 +24,11 @@ login_manager.login_view = 'login'
 login_manager.login_message_category = 'alert-info'
 
 from comunidade import models
-engine =sqlalchemy.create_engine(app.config['SQLALCHEMY_DATABASE_URI'])
+
+# Inspeciona se as tabelas já existem
+engine = sqlalchemy.create_engine(app.config['SQLALCHEMY_DATABASE_URI'])
 inspector = sqlalchemy.inspect(engine)
 if not inspector.has_table("usuario"):
-# Cria as tabelas se ainda não existirem
     with app.app_context():
         database.drop_all()
         database.create_all()
@@ -33,5 +37,4 @@ else:
     print("Base de dados criado já existente")
 
 from comunidade import routes
-
 

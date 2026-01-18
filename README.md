@@ -26,6 +26,10 @@ interação em uma comunidade e gerenciamento de dados utilizando Flask.
 * Estrutura organizada seguindo boas práticas
 
 ---
+## Fluxograma
+Usuário → Cadastro → Login → Interação → Banco de dados
+
+---
 ## Arquitetura e Tecnologias
 
 * Backend: Flask (Python)
@@ -40,6 +44,31 @@ interação em uma comunidade e gerenciamento de dados utilizando Flask.
 * Separação de responsabilidades (rotas, modelos, formulários)
 * Validação de dados de entrada
 * Integração entre frontend e backend
+
+---
+## Estrutura do Projeto
+
+sitecomunidade/
+
+├── comunidade/
+
+│   ├── models.py
+
+│   ├── routes.py
+
+│   ├── forms.py
+
+│   └── templates/
+
+├── instance/
+
+└── main.py
+
+---
+## Conexão com Ciência de Dados
+
+A aplicação foi pensada para futura análise de dados de usuários
+e comportamento dentro da comunidade.
 
 ---
 ## Aprendizados

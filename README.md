@@ -1,7 +1,7 @@
 <h1 align="center"> Plataforma Web com Flask </h1>
 
 <p align="center"> 
-  <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExbWtkdjVrY2ZjZ2M0NTZ6NW9pMmxlYmVrZDVsbTM0cTQ3aTZpazl3MCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/5Pj0jGCLWeKv4G0aTB/giphy.gif" width="300">
+  <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExdjRqdGltM3hwejVkMjgyaWY0b2MzeHR5ZDczZms3OXR1eTBsNzM5cSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/DlbUO4wPJ0t5UG1DCo/giphy.gif" width="300">
 </p>
 
 ---
